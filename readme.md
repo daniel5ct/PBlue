@@ -25,3 +25,11 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+## Testar o projecto
+
+O link de acesso ao projecto é:
+http://localhost:8080/PBlue/client/
+
+email: user@positiveblue.com
+password: blue123
