@@ -1,8 +1,9 @@
 angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', function($http, $q) {
 
+	var endpoint = 'http://localhost:8080/PBlue-master/';
     var login = function(email_login, password) {
         var deferred = $q.defer();
-        $http.post("http://localhost:8080/PBlue/public/index.php/login", {'email':email_login, 'password':password})
+        $http.post(endpoint+"public/index.php/login", {'email':email_login, 'password':password})
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -14,7 +15,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var getAllNewsletters = function() {
         var deferred = $q.defer();
-        $http.get("http://localhost:8080/PBlue/public/index.php/getAll")
+        $http.get(endpoint+"public/index.php/getAll")
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -26,7 +27,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var getNewsletterDetail = function(id) {
         var deferred = $q.defer();
-        $http.get("http://localhost:8080/PBlue/public/index.php/getById/"+id)
+        $http.get(endpoint+"public/index.php/getById/"+id)
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -38,7 +39,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var editNewsletter = function(id, title, introduction, body) {
         var deferred = $q.defer();
-        $http.post("http://localhost:8080/PBlue/public/index.php/editNewsletter/"+id,{'title':title, 'introduction':introduction,'body':body})
+        $http.post(endpoint+"public/index.php/editNewsletter/"+id,{'title':title, 'introduction':introduction,'body':body})
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -50,7 +51,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var addNewsletter = function(title, introduction, body) {
         var deferred = $q.defer();
-        $http.post("http://localhost:8080/PBlue/public/index.php/createNewsletter/",{'title':title, 'introduction':introduction,'body':body})
+        $http.post(endpoint+"public/index.php/createNewsletter/",{'title':title, 'introduction':introduction,'body':body})
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -62,7 +63,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var removeNewsletter = function(id) {
         var deferred = $q.defer();
-        $http.get("http://localhost:8080/PBlue/public/index.php/deleteNewsletter/"+id)
+        $http.get(endpoint+"public/index.php/deleteNewsletter/"+id)
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -74,7 +75,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var addEmail = function(id_newsletter, email) {
         var deferred = $q.defer();
-        $http.post("http://localhost:8080/PBlue/public/index.php/addEmailToNewsletter/",{'id_newsletter':id_newsletter, 'email':email})
+        $http.post(endpoint+"public/index.php/addEmailToNewsletter/",{'id_newsletter':id_newsletter, 'email':email})
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -86,7 +87,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var getEmailsNewsletter = function(id) {
         var deferred = $q.defer();
-        $http.get("http://localhost:8080/PBlue/public/index.php/getEmailsNewsletter/"+id)
+        $http.get(endpoint+"public/index.php/getEmailsNewsletter/"+id)
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -98,7 +99,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var removeEmailFromNewsletter = function(id, email) {
         var deferred = $q.defer();
-        $http.get("http://localhost:8080/PBlue/public/index.php/deleteEmailFromNewsletter/"+id+"/"+email)
+        $http.get(endpoint+"public/index.php/deleteEmailFromNewsletter/"+id+"/"+email)
             .success(function (response) {
                 deferred.resolve(response);
             })
@@ -110,7 +111,7 @@ angular.module('newsletterApp').factory('newsletterService', ['$http', '$q', fun
 
     var sendEmail = function(id,email) {
         var deferred = $q.defer();
-        $http.post("http://localhost:8080/PBlue/public/index.php/sendEmail/" + id,{'email':email})
+        $http.post(endpoint+"public/index.php/sendEmail/" + id,{'email':email})
             .success(function (response) {
                 deferred.resolve(response);
             })

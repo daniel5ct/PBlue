@@ -28,8 +28,18 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Testar o projecto
 
+correr os seguintes comandos, na consola:
+composer update --no-scripts
+php artisan migrate
+php artisan db:seed
+
+Alterar o endpoint, para o servidor que estiver a usar, no seguinte ficheiro:
+client\services\newsletterServices
+
 O link de acesso ao projecto é:
 http://localhost:8080/PBlue/client/
 
 email: user@positiveblue.com
 password: blue123
+
+
