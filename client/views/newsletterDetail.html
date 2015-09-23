@@ -1,0 +1,141 @@
+<a ng-href="./#/newsletters"><img src="http://findicons.com/files/icons/1580/devine_icons_part_2/128/home.png" alt="Home" id="img"></a>
+
+<div>
+    <div id="newsletter">
+        <table class="table">
+            <th id="title">{{ newsletterDetail.title }}</th>
+            <tr>
+                <td id="intro">{{ newsletterDetail.introduction }}</td>
+                <td><p id="paragraph">{{ newsletterDetail.body }}</p><br><p id="date"><i>{{ newsletterDetail.created_at }}</i></p></td>
+                <td id="edit"><button class="btn btn-default" ng-click="$state.go('newsletterEdit',{id:newsletterDetail.id})"><span class="glyphicon glyphicon-edit"></span>  Edit</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+    <h1 id="title_e">Emails</h1>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Insert New Email" ng-model="n_email">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="addEmail(newsletterDetail.id)">Add</button>
+                      </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="emails">
+    <table class="table">
+        <tr ng-repeat="email in emails_n">
+            <td>{{ email }}</td>
+            <!--td><input type="checkbox" name="checkedEmails" value="{{ email.email }}"></td-->
+            <td><a class="btn" ng-click="removeEmailFromNewsletter(newsletterDetail.id,email)"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-default" id="send" ng-if="emails_n.length != 0" ng-click="sendEmail(newsletterDetail.id)">Sent Newsletter</button>
+    </div>
+</div>
+
+<style>
+
+    #edit{
+        vertical-align: middle;
+        padding-left: 100px;
+    }
+    .row{
+        width:80%;
+        align-content: center;
+        margin-left: 500px;
+        margin-top: 30px;
+    }
+
+    #newsletter{
+        width:80%;
+        align-content: center;
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+
+    #emails{
+        width:80%;
+        align-content: center;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+
+    #title{
+        font-family: times, Times New Roman, times-roman, georgia, serif;
+        font-size: 48px;
+        line-height: 40px;
+        letter-spacing: -1px;
+        color: #444;
+        margin: 0 0 0 0;
+        font-weight: 100;
+        padding: 40px;
+    }
+
+    #title_e{
+        font-family: times, Times New Roman, times-roman, georgia, serif;
+        font-size: 48px;
+        line-height: 40px;
+        letter-spacing: -1px;
+        color: #444;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        font-weight: 100;
+        padding-left: 100px;
+        padding-top: 40px
+    }
+
+    #intro{
+        font-family: times, Times New Roman, times-roman, georgia, serif;
+        font-size: 28px;
+        line-height: 40px;
+        letter-spacing: -1px;color: #444;
+        vertical-align: middle;
+
+    }
+
+    #paragraph{
+        font-family: times, Times New Roman, times-roman, georgia, serif;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        color: #444;
+    }
+
+    #date{
+        font-size: small;
+    }
+
+    th, td{
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    hr{
+        width: 90%;
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
+
+    #send{
+        margin-bottom: 30px;;
+    }
+    #img{
+        float:right;
+        width: 50px;
+        height: 50px;
+        margin-right: 250px;
+        vertical-align: top;
+    }
+</style>
