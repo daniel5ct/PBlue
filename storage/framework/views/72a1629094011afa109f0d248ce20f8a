@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>teste</title>
+
+    </head>
+    <body>
+        <h1><?php echo $title; ?></h1>
+        <h3><?php echo $introduction; ?></h3>
+
+        <p><?php echo $content; ?></p>
+    </body>
+</html>
+<style>
+    h1,h3,p{
+        color:#6666FF;
+    }
+</style>

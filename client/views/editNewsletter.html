@@ -1,0 +1,41 @@
+<a ng-href="./#/newsletters"><img src="http://findicons.com/files/icons/1580/devine_icons_part_2/128/home.png" alt="Home" id="img"></a>
+<h1>Edit Newsletter</h1>
+
+<form id="edit" role="form" name="edit" ng-submit="editNewsletter()">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" name="title" ng-model="newsletterDetail.title">
+    </div>
+    <div class="form-group">
+        <label for="introduction">Introduction:</label>
+        <input type="text" class="form-control" name="introduction" ng-model="newsletterDetail.introduction">
+    </div>
+    <div class="form-group">
+        <label for="body">Text:</label>
+        <textarea rows="4" name="comment" class="form-control" form="edit" name="body" ng-model="newsletterDetail.body"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<style>
+    #edit{
+        width:80%;
+        align-content: center;
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+
+    h1{
+        align-content: center;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+
+    #img{
+        float:right;
+        width: 50px;
+        height: 50px;
+        margin-right: 250px;
+        vertical-align: top;
+    }
+</style>
